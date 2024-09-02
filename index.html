@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue Ranger</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f); /* Gradient background */
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            padding: 50px 20px;
+        }
+        .img-one {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* White with opacity */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Adds a shadow */
+            display: inline-block;
+            max-width: 800px;
+            margin: auto;
+        }
+        .img-one h1 {
+            color: #ff6f61; /* Warm color for heading */
+            font-size: 36px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .img-one img {
+            width: 60%; /* Makes the image responsive */
+            max-width: 400px; /* Limits the maximum width */
+            height: auto; /* Maintains aspect ratio */
+            cursor: pointer; /* Indicates the image is clickable */
+            border: 3px solid #ff6f61; /* Warm colored border */
+            border-radius: 15px; /* Adds rounded corners to the image */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+        .img-one img:hover {
+            transform: scale(1.05); /* Slightly enlarges the image on hover */
+        }
+        .Home {
+            margin-top: 30px;
+        }
+        .Home a {
+            text-decoration: none;
+            color: #ff6f61; /* Matches the color theme */
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .Home a:hover {
+            text-decoration: underline;
+            color: #f85f54; /* Slightly darker shade on hover */
+        }
+        .quotes {
+            margin-top: 40px;
+            font-style: italic;
+            color: #444;
+        }
+        .quotes h2 {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: normal;
+        }
+        .quotes h2::before, .quotes h2::after {
+            content: '“';
+            font-size: 30px;
+            color: #ff6f61;
+        }
+        .quotes h2::after {
+            content: '”';
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img-one">
+            <h1>Welcome to Rescue Ranger</h1>
+            <a href="Home.html">
+                <img src="logo.jpg" alt="logo" />
+            </a>
+            <div class="Home">
+                <p>Click on the icon to move to Rescue Rangers</p>
+            </div>
+            <div class="quotes">
+                <h2>Disaster risk reduction is about people’s lives and livelihoods, and how we secure them against the threats they face.</h2>
+                <h2>Investing in disaster risk reduction is not only about saving lives but also about safeguarding development gains and ensuring sustainability.</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

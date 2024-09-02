@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <title>Rescue Ranger</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/marvelfavicon.webp">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Background stays fixed during scrolling */
+            color: #fff; /* White text for better contrast */
+        }
+
+        .showcase {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            padding: 20px;
+        }
+
+        .header .logo {
+            font-size: 3rem;
+            color: #ff6f61; /* Vibrant color for the logo */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adds a shadow to the text */
+            margin: 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ff6f61;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent button background */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ff6f61;
+            color: #fff; /* Inverts colors on hover */
+            transform: scale(1.05); /* Slightly enlarges the button on hover */
+        }
+
+        .showcase-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .showcase-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+
+        footer .social ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer .social ul li {
+            display: inline;
+        }
+
+        footer .social ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+        }
+
+        footer .social ul li a:hover {
+            color: #ff6f61;
+            transform: scale(1.1); /* Slightly enlarges the icon on hover */
+        }
+
+        footer .social ul li a img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase">
+        <div class="header">
+            <h1 class="logo">RESCUE RANGERS</h1>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="predictions.html">Weather Test</a></li>
+                <li><a href="https://www.redcross.org/about-us/our-work/disaster-relief.html">DONATIONS</a></li>
+                <li><a href="ert.html">Emergency Response Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Activity.html">Recent Events</a></li>
+                <li><a href="TraceLink.html">TraceLink</a></li>
+                <li><a href="quiz.html">Quiz</a></li> <!-- Added Quiz link -->
+            </ul>
+        </div>
+        <div class="showcase-content">
+            <h1>Emergency Response Team | Communication System | Disaster Recovery Plan</h1>
+            <p>Every Disaster Has One Story.<br>Every Story has one Sacrifice.</p>
+            <!-- Uncomment the button below if you want to include it -->
+            <!-- <div>
+                <a href="index.html" class="btn" target="_blank">Become a Helping Hand</a>
+            </div> -->
+        </div>
+        <footer>
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.facebook.com/disaster/" target="_blank"><img src="fb.png" alt="Facebook">Facebook</a></li>
+                    <li><a href="https://twitter.com/ndmaindia?lang=en" target="_blank"><img src="twitter.png" alt="Twitter">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/ndrfindia/?hl=en" target="_blank"><img src="instagram2.png" alt="Instagram">Instagram</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

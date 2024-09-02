@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Management Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin: 20px 0;
+        }
+
+        .question p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+
+        .result {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .chart-container {
+            margin: 20px 0;
+            height: 300px;
+        }
+
+        .links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .links a {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Disaster Management Quiz</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. What should you do before a disaster strikes?</p>
+                <label>
+                    <input type="radio" name="q1" value="wrong">
+                    Ignore all warnings and carry on as usual.
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="correct">
+                    Create an emergency kit and plan evacuation routes.
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="wrong">
+                    Wait until the disaster occurs before taking any action.
+                </label>
+            </div>
+
+            <div class="question">
+                <p>2. What is the first thing you should do during an earthquake?</p>
+                <label>
+                    <input type="radio" name="q2" value="wrong">
+                    Run outside immediately.
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="correct">
+                    Drop, cover, and hold on.
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="wrong">
+                    Stand near a window.
+                </label>
+            </div>
+
+            <div class="question">
+                <p>3. How can you reduce the risk of flooding in your home?</p>
+                <label>
+                    <input type="radio" name="q3" value="correct">
+                    Install flood barriers and elevate electrical appliances.
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="wrong">
+                    Leave all doors and windows open.
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="wrong">
+                    Do nothing and hope for the best.
+                </label>
+            </div>
+
+            <div class="question">
+                <p>4. What should you do after a disaster has occurred?</p>
+                <label>
+                    <input type="radio" name="q4" value="correct">
+                    Check yourself and others for injuries, and call for help if needed.
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="wrong">
+                    Go sightseeing to assess the damage.
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="wrong">
+                    Ignore any structural damage to your home.
+                </label>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+
+        <div id="result" class="result">
+            <h2>Your Score</h2>
+            <div class="chart-container">
+                <canvas id="scoreChart"></canvas>
+            </div>
+        </div>
+
+        <div class="links">
+            <h3>Prepare for Disasters</h3>
+            <a href="risk.html" target="_blank">Disaster Risk Mitigation Tips</a>
+            <a href="https://asdma.assam.gov.in/information-services/dos-donts-during-disaster" target="_blank">Precautions Before a Disaster</a>
+            <a href="https://www.travelers.com/resources/weather/emergency-preparedness/what-to-do-in-a-natural-disaster" target="_blank">Actions During a Disaster</a>
+            <a href="https://www.unitedway.org/my-smart-money/immediate-needs/ive-experienced-a-natural-disaster/what-to-do-after-a-disaster" target="_blank">Steps After a Disaster</a>
+        </div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+
+            let correctAnswers = form.querySelectorAll('input[type="radio"][value="correct"]:checked').length;
+            let totalQuestions = form.querySelectorAll('.question').length;
+            let incorrectAnswers = totalQuestions - correctAnswers;
+
+            resultDiv.style.display = 'block';
+            displayChart(correctAnswers, incorrectAnswers);
+        }
+
+        function displayChart(correct, incorrect) {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Correct', 'Incorrect'],
+                    datasets: [{
+                        data: [correct, incorrect],
+                        backgroundColor: ['#28a745', '#dc3545'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+

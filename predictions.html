@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color:black;
+            overflow: scroll;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            padding-left: 7%;
+            padding-right: 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        #video-background {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin-right: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff6f61;
+        }
+
+        .textcontainer {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 250px;
+            height: 300px;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+            transition: transform 0.5s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .card h4 {
+            color: #fff;
+            font-size: 22px;
+            z-index: 1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .card p {
+            color: #fff;
+            font-size: 14px;
+            z-index: 1;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card1 {
+            background-image: url(https://www.bhmpics.com/downloads/earthquake-Wallpapers/10.8431dee5adfad261645e8738ec6e5759--san-andreas-interesting-news.jpg);
+        }
+
+        .card2 {
+            background-image: url(https://t3.ftcdn.net/jpg/05/26/12/72/360_F_526127275_g4f1dWOMrx3laZKP0Ms4cKf4oEGX3Rta.jpg);
+        }
+
+        .card3 {
+            background-image: url(https://img.freepik.com/premium-photo/flooding-houses-road-city-due-strong-storm-flood-consequences_124507-99068.jpg);
+        }
+
+        .card4 {
+            background-image: url(https://blogs.letemps.ch/serge-kurschat/wp-content/uploads/sites/427/2022/08/global-warming-g4133bc440_1920.jpg);
+        }
+
+        h1 {
+            font-size: 100px;
+            font-family: fantasy;
+        }
+
+        .risk-button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .risk-button:hover {
+            background-color: #e55a50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <video autoplay muted loop id="video-background">
+            <source src="Background_loop.mp4" type="video/mp4">
+        </video>
+        <div class="navbar">
+            <img src="logo.jpg" class="logo" alt="Logo">
+            <nav>
+                <ul>
+                    <li><a href="Home.html">HOME</a></li>
+                    <li><a href="dp_region.html">REGION</a></li>
+                    <li><a href="dp_about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="textcontainer">
+            <h1>Disaster Prediction</h1>
+            <p>For up-to-date disaster information and alerts, visit the following sources:</p>
+            <div class="card-container">
+                <a href="https://gdacs.org/" class="card card1">
+                    <h4>Earthquake</h4>
+                    <p>Get the latest updates and alerts on earthquakes worldwide.</p>
+                </a>
+                <a href="https://gdacs.org/" class="card card2">
+                    <h4>Flood</h4>
+                    <p>Stay informed about flooding events and related warnings.</p>
+                </a>
+                <a href="https://gdacs.org/" class="card card3">
+                    <h4>Cyclone</h4>
+                    <p>Receive cyclone alerts and predictions to safeguard yourself.</p>
+                </a>
+                <a href="https://gdacs.org/" class="card card4">
+                    <h4>Heatwave</h4>
+                    <p>Find out about heatwave occurrences and safety measures.</p>
+                </a>
+            </div>
+            <a href="risk.html" class="risk-button">Risk Mitigation</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
